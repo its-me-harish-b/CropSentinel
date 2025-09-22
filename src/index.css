@@ -1,0 +1,131 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 80 30% 97%;
+    --foreground: 140 30% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 30% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 30% 20%;
+
+    --primary: 142 33% 35%;
+    --primary-foreground: 60 30% 96%;
+
+    --secondary: 60 23% 86%;
+    --secondary-foreground: 142 33% 25%;
+
+    --muted: 60 23% 92%;
+    --muted-foreground: 140 10% 40%;
+
+    --accent: 75 30% 70%;
+    --accent-foreground: 142 33% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 75 15% 80%;
+    --input: 75 15% 80%;
+    --ring: 142 33% 35%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 142 33% 35%;
+    --sidebar-foreground: 60 30% 96%;
+    --sidebar-primary: 142 43% 25%;
+    --sidebar-primary-foreground: 60 30% 96%;
+    --sidebar-accent: 142 23% 40%;
+    --sidebar-accent-foreground: 60 30% 96%;
+    --sidebar-border: 142 23% 30%;
+    --sidebar-ring: 60 30% 86%;
+  }
+
+  .dark {
+    --background: 142 33% 15%;
+    --foreground: 60 30% 96%;
+
+    --card: 142 33% 18%;
+    --card-foreground: 60 30% 96%;
+
+    --popover: 142 33% 18%;
+    --popover-foreground: 60 30% 96%;
+
+    --primary: 60 30% 86%;
+    --primary-foreground: 142 33% 15%;
+
+    --secondary: 142 23% 25%;
+    --secondary-foreground: 60 30% 96%;
+
+    --muted: 142 23% 25%;
+    --muted-foreground: 60 15% 80%;
+
+    --accent: 142 23% 25%;
+    --accent-foreground: 60 30% 96%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 30% 96%;
+
+    --border: 142 23% 25%;
+    --input: 142 23% 25%;
+    --ring: 60 30% 86%;
+
+    --sidebar-background: 142 33% 15%;
+    --sidebar-foreground: 60 30% 96%;
+    --sidebar-primary: 142 23% 30%;
+    --sidebar-primary-foreground: 60 30% 96%;
+    --sidebar-accent: 142 13% 20%;
+    --sidebar-accent-foreground: 60 30% 96%;
+    --sidebar-border: 142 13% 20%;
+    --sidebar-ring: 60 30% 86%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+.upload-dropzone {
+  border: 2px dashed hsl(var(--border));
+  transition: all 0.3s ease;
+}
+
+.upload-dropzone:hover, .upload-dropzone.dragging {
+  border-color: hsl(var(--primary));
+  background-color: hsl(var(--muted));
+}
+
+.severity-low {
+  @apply bg-green-100 text-green-800 border-green-200;
+}
+
+.severity-medium {
+  @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+}
+
+.severity-high {
+  @apply bg-red-100 text-red-800 border-red-200;
+}
+
+.leaf-background {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.95)),
+    url('/leaf-pattern.png');
+  background-size: cover;
+  background-position: center;
+}
