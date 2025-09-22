@@ -88,27 +88,27 @@ const Footer = () => {
           </div>
           
           <div className="md:col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-soil-light hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-soil-light hover:text-white transition-colors">About</Link></li>
-              <li><Link to="/pest-library" className="text-soil-light hover:text-white transition-colors">Pest Library</Link></li>
-              <li><Link to="/detect" className="text-soil-light hover:text-white transition-colors">Pest Detection</Link></li>
+              <li><Link to="/" className="text-soil-light hover:text-white transition-colors">{t('nav.home')}</Link></li>
+              <li><Link to="/about" className="text-soil-light hover:text-white transition-colors">{t('nav.about')}</Link></li>
+              <li><Link to="/pest-library" className="text-soil-light hover:text-white transition-colors">{t('nav.pestLibrary')}</Link></li>
+              <li><Link to="/detect" className="text-soil-light hover:text-white transition-colors">{t('nav.detectNow')}</Link></li>
             </ul>
           </div>
           
           <div className="md:col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.resources')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-soil-light hover:text-white transition-colors">Farming Tips</a></li>
-              <li><a href="#" className="text-soil-light hover:text-white transition-colors">Organic Remedies</a></li>
-              <li><a href="#" className="text-soil-light hover:text-white transition-colors">Research Papers</a></li>
-              <li><a href="#" className="text-soil-light hover:text-white transition-colors">API Documentation</a></li>
+              <li><a href="#" className="text-soil-light hover:text-white transition-colors">{t('footer.farmingTips')}</a></li>
+              <li><a href="#" className="text-soil-light hover:text-white transition-colors">{t('footer.organicRemedies')}</a></li>
+              <li><a href="#" className="text-soil-light hover:text-white transition-colors">{t('footer.researchPapers')}</a></li>
+              <li><a href="#" className="text-soil-light hover:text-white transition-colors">{t('footer.apiDocs')}</a></li>
             </ul>
           </div>
           
           <div className="md:col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.contact')}</h3>
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +127,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-8 pt-6 border-t border-cropGreen-light text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Crop Sentinel. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Crop Sentinel. {t('footer.rights')}</p>
         </div>
       </div>
     </footer>

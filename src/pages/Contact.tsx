@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/components/ui/sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,7 +31,7 @@ const Contact = () => {
     
     // Simulate API call
     setTimeout(() => {
-      toast.success("Your message has been sent! We'll get back to you soon.");
+      toast.success(t('contact.form.success'));
       setFormData({
         name: "",
         email: "",
@@ -46,11 +48,10 @@ const Contact = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-bold text-cropGreen-dark mb-4">
-              Contact Us
+              {t('contact.title')}
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Have questions about Crop Sentinel? Want to share feedback or discuss partnership opportunities? 
-              We'd love to hear from you.
+              {t('contact.subtitle')}
             </p>
           </div>
           

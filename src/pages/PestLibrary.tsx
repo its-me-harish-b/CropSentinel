@@ -7,8 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PestLibrary = () => {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState("");
   
   const filteredPests = pestLibrary.filter((pest) => 
@@ -36,17 +38,17 @@ const PestLibrary = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-bold text-cropGreen-dark mb-4">
-              Pest Library
+              {t('pestLibrary.title')}
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              Browse our comprehensive database of common crop pests and learn about organic management strategies.
+              {t('pestLibrary.subtitle')}
             </p>
             
             <div className="relative max-w-md mx-auto">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Search pests by name or description..."
+                placeholder={t('pestLibrary.search.placeholder')}
                 className="pl-10"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -75,7 +77,7 @@ const PestLibrary = () => {
                             <CardDescription className="italic">{pest.scientificName}</CardDescription>
                           </div>
                           <Badge className={getSeverityColor(pest.severity)}>
-                            {pest.severity.charAt(0).toUpperCase() + pest.severity.slice(1)} Risk
+                            {pest.severity.charAt(0).toUpperCase() + pest.severity.slice(1)} {t('pestLibrary.risk')}
                           </Badge>
                         </div>
                       </CardHeader>
@@ -84,7 +86,7 @@ const PestLibrary = () => {
                           {pest.description}
                         </p>
                         <div className="space-y-2">
-                          <h4 className="font-medium text-sm">Top Remedy:</h4>
+                          <h4 className="font-medium text-sm">{t('pestLibrary.topRemedy')}</h4>
                           <p className="text-xs text-muted-foreground">
                             {pest.remedies[0].name} - {pest.remedies[0].description}
                           </p>
@@ -92,7 +94,7 @@ const PestLibrary = () => {
                             to={`/pest-details/${pest.id}`} 
                             className="text-cropGreen hover:text-cropGreen-dark text-sm font-medium inline-block mt-2"
                           >
-                            View Details
+                            {t('pestLibrary.viewDetails')}
                           </Link>
                         </div>
                       </CardContent>
@@ -102,9 +104,9 @@ const PestLibrary = () => {
               ))
             ) : (
               <div className="text-center p-10">
-                <h3 className="text-lg font-medium mb-2">No pests found</h3>
+                <h3 className="text-lg font-medium mb-2">{t('pestLibrary.noResults.title')}</h3>
                 <p className="text-muted-foreground">
-                  Try adjusting your search or browse our complete library.
+                  {t('pestLibrary.noResults.subtitle')}
                 </p>
               </div>
             )}

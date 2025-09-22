@@ -1,31 +1,29 @@
 
 import Layout from "@/components/Layout";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
   return (
     <Layout>
       <div className="container mx-auto px-6 py-12">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-cropGreen-dark mb-4">About Crop Sentinel</h1>
+            <h1 className="text-4xl font-bold text-cropGreen-dark mb-4">{t('about.title')}</h1>
             <p className="text-xl text-muted-foreground">
-              Advanced AI for sustainable pest management in agriculture
+              {t('about.subtitle')}
             </p>
           </div>
           
           <div className="prose prose-lg max-w-none">
             <p className="lead text-lg mb-6">
-              Crop Sentinel was developed with a mission to help farmers identify and manage crop pests using environmentally 
-              friendly approaches. By leveraging the power of artificial intelligence and deep learning, we're making 
-              advanced pest detection accessible to everyone from small garden owners to large-scale farmers.
+              {t('about.intro')}
             </p>
             
-            <h2 className="text-2xl font-semibold text-cropGreen-dark mt-10 mb-4">Our Technology</h2>
+            <h2 className="text-2xl font-semibold text-cropGreen-dark mt-10 mb-4">{t('about.technology.title')}</h2>
             <p>
-              At the heart of Crop Sentinel is a sophisticated deep learning model trained on thousands of images of 
-              agricultural pests and plant diseases. Using convolutional neural networks (CNN) optimized for mobile 
-              and web applications, our system can:
+              {t('about.technology.description')}
             </p>
             
             <ul className="list-disc pl-6 space-y-2 my-4">
@@ -38,20 +36,18 @@ const About = () => {
             <div className="my-10 grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-cropGreen-dark">Our Model</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-cropGreen-dark">{t('about.model.title')}</h3>
                   <p className="text-muted-foreground">
-                    Crop Sentinel uses EfficientNet, a state-of-the-art convolutional neural network architecture 
-                    that balances high accuracy with computational efficiency, making it perfect for real-time pest detection.
+                    {t('about.model.description')}
                   </p>
                 </CardContent>
               </Card>
               
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-cropGreen-dark">Data Sources</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-cropGreen-dark">{t('about.data.title')}</h3>
                   <p className="text-muted-foreground">
-                    Our model is trained on a diverse dataset of over 50,000 high-quality images, collected from agricultural 
-                    research institutions, extension services, and farming communities worldwide.
+                    {t('about.data.description')}
                   </p>
                 </CardContent>
               </Card>

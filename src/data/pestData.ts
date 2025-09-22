@@ -310,6 +310,213 @@ export const pestLibrary: PestInfo[] = [
       }
     ],
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Thrips_tabaci.jpg/1280px-Thrips_tabaci.jpg"
+  },
+  {
+    id: "africanized-honey-bee-011",
+    name: "Africanized Honey Bees (Killer Bees)",
+    scientificName: "Apis mellifera scutellata",
+    confidenceScore: 0.92,
+    severity: "high",
+    description: "Africanized honey bees are aggressive hybrid bees that defend their hives more vigorously than European honey bees. While beneficial for pollination, they can pose risks to humans and livestock due to their defensive behavior. They may also compete with native pollinators.",
+    remedies: [
+      {
+        name: "Professional Removal",
+        description: "Contact licensed bee removal specialists for safe relocation of colonies without harming beneficial pollinators.",
+        effectiveness: "High",
+        application: "Call professional beekeepers or pest control specialists trained in bee relocation rather than extermination."
+      },
+      {
+        name: "Habitat Modification",
+        description: "Remove potential nesting sites like hollow trees, wall cavities, and unused equipment to discourage establishment.",
+        effectiveness: "Medium",
+        application: "Seal openings in structures, remove debris piles, and maintain clean areas around buildings."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: "armyworm-012",
+    name: "Armyworms",
+    scientificName: "Spodoptera spp.",
+    confidenceScore: 0.91,
+    severity: "high",
+    description: "Armyworms are caterpillars that feed on grasses and crops, moving in large groups across fields like an army. They can quickly defoliate entire fields of corn, rice, and pasture grasses, causing significant economic losses.",
+    remedies: [
+      {
+        name: "Bacillus thuringiensis (Bt)",
+        description: "Biological insecticide that specifically targets caterpillars while being safe for beneficial insects and humans.",
+        effectiveness: "High",
+        application: "Apply Bt spray when caterpillars are small (1st-3rd instar). Spray in late afternoon or evening for best results."
+      },
+      {
+        name: "Beneficial Nematodes",
+        description: "Parasitic nematodes that attack armyworm larvae in soil, reducing population naturally.",
+        effectiveness: "Medium",
+        application: "Apply to moist soil when soil temperature is 55-85°F. Water before and after application."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: "brown-marmorated-stink-bug-013",
+    name: "Brown Marmorated Stink Bugs",
+    scientificName: "Halyomorpha halys",
+    confidenceScore: 0.89,
+    severity: "medium",
+    description: "Brown marmorated stink bugs are shield-shaped insects that feed on fruits, vegetables, and ornamental plants. They pierce plant tissue and suck plant juices, causing dimpling, scarring, and discoloration of fruits and vegetables.",
+    remedies: [
+      {
+        name: "Kaolin Clay",
+        description: "Particle film that creates a protective barrier on plants, deterring feeding and egg laying.",
+        effectiveness: "Medium",
+        application: "Apply kaolin clay spray to all plant surfaces every 7-14 days or after rain."
+      },
+      {
+        name: "Row Covers",
+        description: "Physical barrier that prevents stink bugs from accessing plants during vulnerable growth stages.",
+        effectiveness: "High",
+        application: "Cover crops with floating row covers during peak stink bug season, removing for pollination."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: "citrus-canker-014",
+    name: "Citrus Canker",
+    scientificName: "Xanthomonas axonopodis",
+    confidenceScore: 0.94,
+    severity: "high",
+    description: "Citrus canker is a bacterial disease that causes lesions on leaves, stems, and fruit of citrus trees. It leads to premature fruit drop, reduced fruit quality, and can spread rapidly in humid conditions with wind and rain.",
+    remedies: [
+      {
+        name: "Copper Spray",
+        description: "Copper-based fungicide that prevents bacterial spread and protects healthy tissue from infection.",
+        effectiveness: "High",
+        application: "Apply copper spray before rain events and every 14-21 days during wet seasons. Follow label rates carefully."
+      },
+      {
+        name: "Pruning Infected Branches",
+        description: "Remove infected plant material to prevent disease spread and improve air circulation.",
+        effectiveness: "High",
+        application: "Prune infected branches 12 inches below visible symptoms. Disinfect tools between cuts with 70% alcohol."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: "corn-borer-015",
+    name: "Corn Borers",
+    scientificName: "Ostrinia nubilalis",
+    confidenceScore: 0.93,
+    severity: "high",
+    description: "Corn borers are caterpillars that tunnel into corn stalks, weakening plants and making them susceptible to lodging. They feed on leaves, tassels, and developing ears, significantly reducing corn yields.",
+    remedies: [
+      {
+        name: "Bacillus thuringiensis (Bt)",
+        description: "Biological control that targets caterpillars specifically without harming beneficial insects.",
+        effectiveness: "High",
+        application: "Apply when larvae are young and before they bore into stalks. Repeat applications every 5-7 days."
+      },
+      {
+        name: "Crop Rotation",
+        description: "Break the pest cycle by rotating to non-host crops, disrupting overwintering larvae.",
+        effectiveness: "Medium",
+        application: "Rotate corn with soybeans, small grains, or other non-host crops for 1-2 years."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: "corn-earworm-016",
+    name: "Corn Earworms",
+    scientificName: "Helicoverpa zea",
+    confidenceScore: 0.95,
+    severity: "high",
+    description: "Corn earworms are caterpillars that feed on corn ears, cotton bolls, and tomato fruits. They damage kernels and create entry points for diseases, significantly reducing crop quality and marketability.",
+    remedies: [
+      {
+        name: "Beneficial Insects",
+        description: "Encourage natural predators like lacewings, minute pirate bugs, and parasitic wasps.",
+        effectiveness: "Medium",
+        application: "Plant diverse flowering plants nearby to attract and support beneficial insect populations."
+      },
+      {
+        name: "Spinosad Spray",
+        description: "Natural insecticide derived from soil bacteria that controls caterpillars effectively.",
+        effectiveness: "High",
+        application: "Apply when eggs hatch and larvae are small. Focus on corn silks and developing ears."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1569395743873-26d9b03242c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: "fall-armyworm-017",
+    name: "Fall Armyworms",
+    scientificName: "Spodoptera frugiperda",
+    confidenceScore: 0.90,
+    severity: "high",
+    description: "Fall armyworms are destructive caterpillars that feed on corn, rice, and grass crops. They can rapidly defoliate plants and are known for their ability to migrate long distances, making them a serious agricultural pest.",
+    remedies: [
+      {
+        name: "Bt Corn Varieties",
+        description: "Plant genetically modified corn varieties that produce Bt toxins harmful to armyworms.",
+        effectiveness: "High",
+        application: "Choose appropriate Bt corn hybrids for your region and follow refuge requirements."
+      },
+      {
+        name: "Pheromone Traps",
+        description: "Monitor adult moth activity to time treatments and assess population levels.",
+        effectiveness: "Low",
+        application: "Place pheromone traps around field perimeters to monitor flight activity and plan treatments."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1589642123053-ac5a9b39d3e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: "fruit-flies-018",
+    name: "Fruit Flies",
+    scientificName: "Tephritidae",
+    confidenceScore: 0.88,
+    severity: "medium",
+    description: "Fruit flies lay eggs in ripening fruits, and the larvae feed inside, causing fruit to rot and become unmarketable. They affect a wide range of fruit crops and can spread rapidly in warm weather.",
+    remedies: [
+      {
+        name: "Protein Bait Traps",
+        description: "Attract and trap adult flies before they can lay eggs in fruit using protein-based lures.",
+        effectiveness: "Medium",
+        application: "Hang protein bait traps in fruit trees before fruit begins to ripen. Replace bait regularly."
+      },
+      {
+        name: "Sanitation",
+        description: "Remove fallen and overripe fruit to eliminate breeding sites for flies.",
+        effectiveness: "High",
+        application: "Collect and dispose of fallen fruit daily. Remove any damaged or overripe fruit from trees promptly."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1582049450464-1936543e8507?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: "western-corn-rootworm-019",
+    name: "Western Corn Rootworms",
+    scientificName: "Diabrotica virgifera virgifera",
+    confidenceScore: 0.92,
+    severity: "high",
+    description: "Western corn rootworms are beetles whose larvae feed on corn roots, causing plant stress, lodging, and yield loss. Adult beetles feed on corn silks, interfering with pollination.",
+    remedies: [
+      {
+        name: "Crop Rotation",
+        description: "Rotate corn with soybeans to break the pest cycle since larvae cannot survive on soybean roots.",
+        effectiveness: "High",
+        application: "Implement annual corn-soybean rotation or extended rotation with other non-host crops."
+      },
+      {
+        name: "Beneficial Nematodes",
+        description: "Apply entomopathogenic nematodes that parasitize rootworm larvae in soil.",
+        effectiveness: "Medium",
+        application: "Apply nematodes to soil when larvae are present, typically in late spring to early summer."
+      }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   }
 ];
 
