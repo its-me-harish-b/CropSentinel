@@ -2,8 +2,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
+  const { t } = useLanguage();
   return (
     <header className="bg-cropGreen-dark text-white py-4 px-6 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
@@ -81,15 +83,15 @@ const Header = () => {
           <span>Crop Sentinel</span>
         </Link>
         <nav className="hidden md:flex space-x-6">
-          <Link to="/" className="hover:text-soil-light transition-colors">Home</Link>
-          <Link to="/about" className="hover:text-soil-light transition-colors">About</Link>
-          <Link to="/pest-library" className="hover:text-soil-light transition-colors">Pest Library</Link>
-          <Link to="/contact" className="hover:text-soil-light transition-colors">Contact</Link>
+          <Link to="/" className="hover:text-soil-light transition-colors">{t('nav.home')}</Link>
+          <Link to="/about" className="hover:text-soil-light transition-colors">{t('nav.about')}</Link>
+          <Link to="/pest-library" className="hover:text-soil-light transition-colors">{t('nav.pestLibrary')}</Link>
+          <Link to="/contact" className="hover:text-soil-light transition-colors">{t('nav.contact')}</Link>
         </nav>
         <div className="flex items-center gap-4">
           <LanguageSelector />
           <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-cropGreen-dark">
-            <Link to="/detect">Detect Now</Link>
+            <Link to="/detect">{t('nav.detectNow')}</Link>
           </Button>
         </div>
       </div>

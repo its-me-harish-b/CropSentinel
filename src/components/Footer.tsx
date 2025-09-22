@@ -1,7 +1,9 @@
 
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="bg-cropGreen-dark text-white py-8 px-6">
       <div className="container mx-auto">
@@ -81,7 +83,7 @@ const Footer = () => {
               Crop Sentinel
             </Link>
             <p className="mt-4 text-sm">
-              Protecting your crops with advanced AI pest detection technology.
+              {t('footer.description')}
             </p>
           </div>
           
