@@ -3,8 +3,11 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { t } = useLanguage();
+  
   return (
     <Layout>
       {/* Hero Section */}
@@ -17,17 +20,17 @@ const Index = () => {
         <div className="container mx-auto px-6 py-20 md:py-32 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Protect Your Crops with AI-Powered Pest Detection
+              {t('hero.title')}
             </h1>
             <p className="text-lg md:text-xl mb-8 opacity-90">
-              Crop Sentinel uses advanced deep learning to identify pests and provide organic remedies, helping you safeguard your harvest naturally.
+              {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-white text-cropGreen-dark hover:bg-soil-light">
-                <Link to="/detect">Detect Pests Now</Link>
+                <Link to="/detect">{t('hero.detectButton')}</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-cropGreen-dark">
-                <Link to="/about">Learn More</Link>
+              <Button asChild variant="secondary" size="lg" className="bg-white/20 backdrop-blur-sm border-white text-white hover:bg-white hover:text-cropGreen-dark">
+                <Link to="/about">{t('hero.learnMore')}</Link>
               </Button>
             </div>
           </div>
@@ -38,9 +41,9 @@ const Index = () => {
       <section className="py-16 bg-soil-light bg-opacity-30">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-cropGreen-dark mb-4">How Crop Sentinel Works</h2>
+            <h2 className="text-3xl font-bold text-cropGreen-dark mb-4">{t('features.title')}</h2>
             <p className="text-muted-foreground">
-              Our advanced AI technology helps you identify and treat crop pests quickly and effectively, using environmentally friendly solutions.
+              {t('features.subtitle')}
             </p>
           </div>
           
@@ -53,9 +56,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Upload Your Image</h3>
+                <h3 className="text-xl font-semibold mb-2">{t('features.upload.title')}</h3>
                 <p className="text-muted-foreground">
-                  Take a photo of your affected crop or upload an existing image to get started with the analysis.
+                  {t('features.upload.description')}
                 </p>
               </CardContent>
             </Card>
@@ -67,9 +70,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Get AI Analysis</h3>
+                <h3 className="text-xl font-semibold mb-2">{t('features.analysis.title')}</h3>
                 <p className="text-muted-foreground">
-                  Our deep learning model identifies the pest and assesses the severity of the infestation.
+                  {t('features.analysis.description')}
                 </p>
               </CardContent>
             </Card>
@@ -81,9 +84,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Receive Treatment Plans</h3>
+                <h3 className="text-xl font-semibold mb-2">{t('features.treatment.title')}</h3>
                 <p className="text-muted-foreground">
-                  Get organic remedy recommendations and detailed action plans to effectively treat the pest problem.
+                  {t('features.treatment.description')}
                 </p>
               </CardContent>
             </Card>
@@ -97,19 +100,19 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
               <h3 className="text-4xl font-bold mb-2">95%</h3>
-              <p className="text-soil-light">Detection Accuracy</p>
+              <p className="text-soil-light">{t('stats.accuracy')}</p>
             </div>
             <div>
               <h3 className="text-4xl font-bold mb-2">200+</h3>
-              <p className="text-soil-light">Pest Species Recognized</p>
+              <p className="text-soil-light">{t('stats.species')}</p>
             </div>
             <div>
               <h3 className="text-4xl font-bold mb-2">100%</h3>
-              <p className="text-soil-light">Organic Remedies</p>
+              <p className="text-soil-light">{t('stats.organic')}</p>
             </div>
             <div>
               <h3 className="text-4xl font-bold mb-2">50K+</h3>
-              <p className="text-soil-light">Farmers Helped</p>
+              <p className="text-soil-light">{t('stats.farmers')}</p>
             </div>
           </div>
         </div>
@@ -119,9 +122,9 @@ const Index = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-cropGreen-dark mb-4">What Farmers Are Saying</h2>
+            <h2 className="text-3xl font-bold text-cropGreen-dark mb-4">{t('testimonials.title')}</h2>
             <p className="text-muted-foreground">
-              Hear from farmers who have used Crop Sentinel to protect their harvests.
+              {t('testimonials.subtitle')}
             </p>
           </div>
           
@@ -177,12 +180,12 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-cropGreen-dark text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Protect Your Crops?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('cta.title')}</h2>
           <p className="text-xl max-w-2xl mx-auto mb-8">
-            Start using Crop Sentinel today and take the first step toward healthier, more resilient crops.
+            {t('cta.subtitle')}
           </p>
           <Button asChild size="lg" className="bg-white text-cropGreen-dark hover:bg-soil-light">
-            <Link to="/detect">Try Pest Detection Now</Link>
+            <Link to="/detect">{t('cta.button')}</Link>
           </Button>
         </div>
       </section>

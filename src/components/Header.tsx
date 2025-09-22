@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = () => {
   return (
@@ -85,9 +86,12 @@ const Header = () => {
           <Link to="/pest-library" className="hover:text-soil-light transition-colors">Pest Library</Link>
           <Link to="/contact" className="hover:text-soil-light transition-colors">Contact</Link>
         </nav>
-        <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-cropGreen-dark">
-          <Link to="/detect">Detect Now</Link>
-        </Button>
+        <div className="flex items-center gap-4">
+          <LanguageSelector />
+          <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-cropGreen-dark">
+            <Link to="/detect">Detect Now</Link>
+          </Button>
+        </div>
       </div>
     </header>
   );
