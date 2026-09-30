@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+  <style>
+    /* --- ERROR MESSAGE STYLE (Red) --- */
+    .error-text {
+      background-color: #ffcccc;
+      color: #cc0000;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      text-align: left;
+      display: none;
+      border: 1px solid #ff0000;
+    }
+
+    /* --- SUCCESS MESSAGE STYLE (Green) --- */
+    .success-text {
+      background-color: #d4edda;     /* Light green background */
+      color: #155724;                /* Dark green text */
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-align: center;
+      display: none;                 /* Hidden by default */
+      border: 1px solid #c3e6cb;     /* Green border */
+    }
+
+    .input-box {
+      margin-bottom: 10px;
+    }
+
+    #togglePassword {
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <form action="" id="loginForm">
+      <h1>Login</h1>
+      
+      <div class="success-text" id="loginSuccess">
+        Login Successful! Redirecting...
+      </div>
+      
+      <div class="input-box">
+        <input type="text" id="username" placeholder="Username" required>
+        <i class='bx bxs-user'></i>
+      </div>
+      <p class="error-text" id="usernameError">Error message here</p>
+      
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" required>
+        <i class='bx bxs-lock-alt' id="togglePassword"></i>
+      </div>
+      <p class="error-text" id="passwordError">Error message here</p>
+      
+      <div class="remember-forgot">
+        <label><input type="checkbox">Remember Me</label>
+        <a href="forgot.html">Forgot Password</a>
+      </div>
+      
+      <button type="submit" class="btn">Login</button>
+      
+      <div class="register-link">
+        <p>Dont have an account? <a href="register.html">Register</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // --- VARIABLES ---
+    const form = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('togglePassword');
+    
+    // Message elements
+    const userError = document.getElementById('usernameError');
+    const passError = document.getElementById('passwordError');
+    const successMsg = document.getElementById('loginSuccess');
+
+    // --- SHOW/HIDE PASSWORD LOGIC ---
+    toggleIcon.addEventListener('click', function () {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      this.classList.toggle('bxs-lock-alt');
+      this.classList.toggle('bxs-lock-open-alt');
+    });
+
+    // --- FORM VALIDATION LOGIC ---
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
+      // 1. Reset Messages
+      userError.style.display = "none";
+      passError.style.display = "none";
+      successMsg.style.display = "none"; 
+
+      const usernameValue = usernameInput.value.trim();
+      const passwordValue = passwordInput.value.trim();
+      let isValid = true;
+
+      // 2. Check Username
+      if (usernameValue.length < 4) {
+        userError.innerText = "Username is too short (min 4 chars)";
+        userError.style.display = "block";
+        isValid = false;
+      }
+
+      // 3. Check Password
+      if (passwordValue.length < 6) {
+        passError.innerText = "Password is too short (min 6 chars)";
+        passError.style.display = "block";
+        isValid = false;
+      }
+
+      // 4. IF LOGIN SUCCESSFUL
+      if (isValid) {
+        // Show Green Success Box
+        successMsg.style.display = "block";
+        
+        // Disable button so they can't click twice
+        const btn = document.querySelector('.btn');
+        btn.disabled = true;
+        btn.innerText = "Loading...";
+
+        // Redirect after 2 seconds
+        setTimeout(function() {
+          // GO UP ONE LEVEL (..) to find index.html in the parent folder
+          window.location.href = "../index.html"; 
+        }, 2000); 
+      }
+    });
+  </script>
+</body>
+</html>

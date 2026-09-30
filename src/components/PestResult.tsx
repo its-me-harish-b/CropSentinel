@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getEffectivenessKey, localizePest } from "@/lib/pestI18n";
 
 interface Remedy {
   name: string;
@@ -26,10 +28,15 @@ interface PestInfo {
 interface PestResultProps {
   pestInfo: PestInfo;
   onReset: () => void;
+  uploadedImage?: string;
 }
 
-const PestResult = ({ pestInfo, onReset }: PestResultProps) => {
+const PestResult = ({ pestInfo, onReset, uploadedImage }: PestResultProps) => {
+  const { t, language } = useLanguage();
+  const localized = localizePest(pestInfo, language);
   const [activeTab, setActiveTab] = useState("overview");
+  // Use uploaded image if available, otherwise use pest library image
+  const displayImage = uploadedImage || localized.imageUrl;
   
   const getSeverityColor = (severity: string) => {
     switch (severity) {
@@ -47,13 +54,13 @@ const PestResult = ({ pestInfo, onReset }: PestResultProps) => {
   const getSeverityText = (severity: string) => {
     switch (severity) {
       case "low":
-        return "Low Risk - Monitor";
+        return t("pest.severity.low");
       case "medium":
-        return "Medium Risk - Action Needed";
+        return t("pest.severity.medium");
       case "high":
-        return "High Risk - Immediate Action";
+        return t("pest.severity.high");
       default:
-        return "Unknown";
+        return t("common.unknown");
     }
   };
   
@@ -62,15 +69,15 @@ const PestResult = ({ pestInfo, onReset }: PestResultProps) => {
       <CardHeader className="bg-cropGreen bg-opacity-10 border-b">
         <div className="flex justify-between items-start">
           <div>
-            <CardTitle className="text-2xl text-cropGreen-dark">{pestInfo.name}</CardTitle>
-            <CardDescription className="italic">{pestInfo.scientificName}</CardDescription>
+            <CardTitle className="text-2xl text-cropGreen-dark">{localized.name}</CardTitle>
+            <CardDescription className="italic">{localized.scientificName}</CardDescription>
           </div>
           <div className="flex flex-col items-end gap-2">
-            <Badge className={getSeverityColor(pestInfo.severity)}>
-              {getSeverityText(pestInfo.severity)}
+            <Badge className={getSeverityColor(localized.severity)}>
+              {getSeverityText(localized.severity)}
             </Badge>
             <div className="text-sm">
-              <span className="font-semibold">Confidence:</span> {Math.round(pestInfo.confidenceScore * 100)}%
+              <span className="font-semibold">{t("pest.confidence")}:</span> {Math.round(localized.confidenceScore * 100)}%
             </div>
           </div>
         </div>
@@ -78,21 +85,21 @@ const PestResult = ({ pestInfo, onReset }: PestResultProps) => {
       <CardContent className="p-0">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="w-full grid grid-cols-3">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="remedies">Organic Remedies</TabsTrigger>
-            <TabsTrigger value="action">Action Plan</TabsTrigger>
+            <TabsTrigger value="overview">{t("pest.tabs.overview")}</TabsTrigger>
+            <TabsTrigger value="remedies">{t("pest.tabs.remedies")}</TabsTrigger>
+            <TabsTrigger value="action">{t("pest.tabs.action")}</TabsTrigger>
           </TabsList>
           
           <TabsContent value="overview" className="p-6">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-1">
-                <h3 className="text-lg font-semibold mb-2">About this Pest</h3>
-                <p className="text-muted-foreground">{pestInfo.description}</p>
+                <h3 className="text-lg font-semibold mb-2">{t("pest.aboutThisPest")}</h3>
+                <p className="text-muted-foreground">{localized.description}</p>
               </div>
               <div className="md:w-1/3">
                 <img 
-                  src={pestInfo.imageUrl} 
-                  alt={pestInfo.name} 
+                  src={displayImage} 
+                  alt={localized.name} 
                   className="w-full h-auto rounded-lg object-cover shadow-md"
                 />
               </div>
@@ -100,55 +107,58 @@ const PestResult = ({ pestInfo, onReset }: PestResultProps) => {
           </TabsContent>
           
           <TabsContent value="remedies" className="p-6">
-            <h3 className="text-lg font-semibold mb-4">Recommended Organic Remedies</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("pest.recommendedOrganicRemedies")}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {pestInfo.remedies.map((remedy, index) => (
+              {localized.remedies.map((remedy, index) => {
+                const key = getEffectivenessKey(remedy.effectiveness);
+                const effectivenessLabel = key ? t(`effectiveness.${key}`) : remedy.effectiveness;
+                return (
                 <Card key={index} className="border border-soil-light">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-md">{remedy.name}</CardTitle>
                     <Badge variant="outline" className="w-fit">
-                      Effectiveness: {remedy.effectiveness}
+                      {t("pest.effectiveness")}: {effectivenessLabel}
                     </Badge>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground mb-2">{remedy.description}</p>
                     <p className="text-xs border-t pt-2 mt-2">
-                      <span className="font-semibold">Application:</span> {remedy.application}
+                      <span className="font-semibold">{t("pest.application")}:</span> {remedy.application}
                     </p>
                   </CardContent>
                 </Card>
-              ))}
+                );
+              })}
             </div>
           </TabsContent>
           
           <TabsContent value="action" className="p-6">
-            <h3 className="text-lg font-semibold mb-4">Recommended Action Plan</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("pest.recommendedActionPlan")}</h3>
             <div className="space-y-4">
               <div className="p-4 border rounded-lg">
-                <h4 className="font-medium text-cropGreen-dark mb-2">Immediate Steps</h4>
+                <h4 className="font-medium text-cropGreen-dark mb-2">{t("pest.action.immediateSteps")}</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm">
-                  <li>Isolate affected plants to prevent spread</li>
-                  <li>Apply recommended organic remedies</li>
-                  <li>Remove severely infested plant parts</li>
-                  <li>Monitor daily for the next week</li>
+                  <li>{t("pest.action.immediate.1")}</li>
+                  <li>{t("pest.action.immediate.2")}</li>
+                  <li>{t("pest.action.immediate.3")}</li>
+                  <li>{t("pest.action.immediate.4")}</li>
                 </ul>
               </div>
               
               <div className="p-4 border rounded-lg">
-                <h4 className="font-medium text-cropGreen-dark mb-2">Prevention Strategy</h4>
+                <h4 className="font-medium text-cropGreen-dark mb-2">{t("pest.action.preventionStrategy")}</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm">
-                  <li>Maintain proper plant spacing for airflow</li>
-                  <li>Use companion planting strategies</li>
-                  <li>Rotate crops in subsequent seasons</li>
-                  <li>Implement regular monitoring practices</li>
+                  <li>{t("pest.action.prevent.1")}</li>
+                  <li>{t("pest.action.prevent.2")}</li>
+                  <li>{t("pest.action.prevent.3")}</li>
+                  <li>{t("pest.action.prevent.4")}</li>
                 </ul>
               </div>
               
               <div className="p-4 border rounded-lg">
-                <h4 className="font-medium text-cropGreen-dark mb-2">Expert Consultation</h4>
+                <h4 className="font-medium text-cropGreen-dark mb-2">{t("pest.action.expertConsultation")}</h4>
                 <p className="text-sm">
-                  For severe infestations, consider consulting with a local agricultural extension 
-                  service or a certified crop advisor for personalized guidance.
+                  {t("pest.action.expert.text")}
                 </p>
               </div>
             </div>
@@ -157,10 +167,10 @@ const PestResult = ({ pestInfo, onReset }: PestResultProps) => {
         
         <div className="flex justify-between items-center p-4 border-t">
           <Button variant="outline" onClick={onReset}>
-            Analyze Another Image
+            {t("pest.button.analyzeAnother")}
           </Button>
           <Button className="bg-cropGreen hover:bg-cropGreen-dark">
-            Save Results
+            {t("pest.button.saveResults")}
           </Button>
         </div>
       </CardContent>

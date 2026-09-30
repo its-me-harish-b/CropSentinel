@@ -48,7 +48,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Blend 4 cloves of garlic with 2 cups water, strain, add 1 tbsp mild soap, dilute with 1 quart water."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/60/Aphid_giving_birth_flickr.jpg"
+    imageUrl: "/Aphids.jpg"
   },
   {
     id: "spider-mite-002",
@@ -77,7 +77,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Mix 1 tsp rosemary oil with 1 quart water and 1/4 tsp mild liquid soap. Spray every 5-7 days."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Tetranychus_urticae_montage.png/1024px-Tetranychus_urticae_montage.png"
+    imageUrl: "/spider mite.jpg"
   },
   {
     id: "tomato-hornworm-003",
@@ -106,7 +106,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Plant dill near tomato plants at the beginning of the growing season."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Tomato_Hornworm.jpg/1280px-Tomato_Hornworm.jpg"
+    imageUrl: "/tomato hornworms.jpg"
   },
   {
     id: "whitefly-004",
@@ -135,7 +135,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Mix 2-3 tbsp per gallon of water. Spray directly on whiteflies, focusing on leaf undersides. Repeat every 5-7 days."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Aleyrodidae_-_T.vaporariorum.JPG/1280px-Aleyrodidae_-_T.vaporariorum.JPG"
+    imageUrl: "/white fly.jpg"
   },
   {
     id: "colorado-potato-beetle-005",
@@ -164,7 +164,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Cover young potato plants with lightweight floating row covers. Secure edges with soil or pins. Remove temporarily during flowering if pollination is needed."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Leptinotarsa_decemlineata_01.JPG/1280px-Leptinotarsa_decemlineata_01.JPG"
+    imageUrl: "/Colorado_potato_beetle.jpg"
   },
   {
     id: "cabbage-looper-006",
@@ -193,7 +193,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Plant thyme, mint, or marigolds around brassica crops to repel moths or attract beneficial insects."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Cabbage_looper_larva.jpg/1280px-Cabbage_looper_larva.jpg"
+    imageUrl: "/Cabbage Looper.jpg"
   },
   {
     id: "squash-bug-007",
@@ -222,7 +222,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Mix 2 tbsp neem oil with 1 gallon of water and 1 tsp mild soap. Apply weekly, focusing on leaf undersides and stems."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Anasa_tristis.jpg/1280px-Anasa_tristis.jpg"
+    imageUrl: "/squash-bugs-adult.jpg"
   },
   {
     id: "japanese-beetle-008",
@@ -251,7 +251,7 @@ export const pestLibrary: PestInfo[] = [
         application: "In the early morning when beetles are sluggish, shake plants over a bucket of soapy water to collect and drown the beetles."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Popillia_japonica_on_rose_leaf.jpg/1280px-Popillia_japonica_on_rose_leaf.jpg"
+    imageUrl: "/Japanese Beetle.jpg"
   },
   {
     id: "cucumber-beetle-009",
@@ -280,7 +280,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Apply beneficial nematodes to moist soil according to package directions. Water before and after application."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Spotted_cucumber_beetle.jpg/1280px-Spotted_cucumber_beetle.jpg"
+    imageUrl: "/Cucumber Beetle.jpg"
   },
   {
     id: "thrips-010",
@@ -309,30 +309,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Release beneficial insects according to supplier instructions, typically when thrips activity is first noticed."
       }
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Thrips_tabaci.jpg/1280px-Thrips_tabaci.jpg"
-  },
-  {
-    id: "africanized-honey-bee-011",
-    name: "Africanized Honey Bees (Killer Bees)",
-    scientificName: "Apis mellifera scutellata",
-    confidenceScore: 0.92,
-    severity: "high",
-    description: "Africanized honey bees are aggressive hybrid bees that defend their hives more vigorously than European honey bees. While beneficial for pollination, they can pose risks to humans and livestock due to their defensive behavior. They may also compete with native pollinators.",
-    remedies: [
-      {
-        name: "Professional Removal",
-        description: "Contact licensed bee removal specialists for safe relocation of colonies without harming beneficial pollinators.",
-        effectiveness: "High",
-        application: "Call professional beekeepers or pest control specialists trained in bee relocation rather than extermination."
-      },
-      {
-        name: "Habitat Modification",
-        description: "Remove potential nesting sites like hollow trees, wall cavities, and unused equipment to discourage establishment.",
-        effectiveness: "Medium",
-        application: "Seal openings in structures, remove debris piles, and maintain clean areas around buildings."
-      }
-    ],
-    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    imageUrl: "/thrips.jpg"
   },
   {
     id: "armyworm-012",
@@ -355,7 +332,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Apply to moist soil when soil temperature is 55-85°F. Water before and after application."
       }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    imageUrl: "/Amyworms.jpg"
   },
   {
     id: "brown-marmorated-stink-bug-013",
@@ -378,30 +355,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Cover crops with floating row covers during peak stink bug season, removing for pollination."
       }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-  },
-  {
-    id: "citrus-canker-014",
-    name: "Citrus Canker",
-    scientificName: "Xanthomonas axonopodis",
-    confidenceScore: 0.94,
-    severity: "high",
-    description: "Citrus canker is a bacterial disease that causes lesions on leaves, stems, and fruit of citrus trees. It leads to premature fruit drop, reduced fruit quality, and can spread rapidly in humid conditions with wind and rain.",
-    remedies: [
-      {
-        name: "Copper Spray",
-        description: "Copper-based fungicide that prevents bacterial spread and protects healthy tissue from infection.",
-        effectiveness: "High",
-        application: "Apply copper spray before rain events and every 14-21 days during wet seasons. Follow label rates carefully."
-      },
-      {
-        name: "Pruning Infected Branches",
-        description: "Remove infected plant material to prevent disease spread and improve air circulation.",
-        effectiveness: "High",
-        application: "Prune infected branches 12 inches below visible symptoms. Disinfect tools between cuts with 70% alcohol."
-      }
-    ],
-    imageUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    imageUrl: "/Brown Marmorated Stink Bugs.jpg"
   },
   {
     id: "corn-borer-015",
@@ -424,7 +378,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Rotate corn with soybeans, small grains, or other non-host crops for 1-2 years."
       }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    imageUrl: "/Corn Borers.jpg"
   },
   {
     id: "corn-earworm-016",
@@ -447,7 +401,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Apply when eggs hatch and larvae are small. Focus on corn silks and developing ears."
       }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1569395743873-26d9b03242c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    imageUrl: "/Corn Earworms.jpg"
   },
   {
     id: "fall-armyworm-017",
@@ -470,7 +424,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Place pheromone traps around field perimeters to monitor flight activity and plan treatments."
       }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1589642123053-ac5a9b39d3e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    imageUrl: "/Fall Armyworms.jpg"
   },
   {
     id: "fruit-flies-018",
@@ -493,7 +447,7 @@ export const pestLibrary: PestInfo[] = [
         application: "Collect and dispose of fallen fruit daily. Remove any damaged or overripe fruit from trees promptly."
       }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1582049450464-1936543e8507?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    imageUrl: "/Fruit Flies.jpg"
   },
   {
     id: "western-corn-rootworm-019",
@@ -516,16 +470,57 @@ export const pestLibrary: PestInfo[] = [
         application: "Apply nematodes to soil when larvae are present, typically in late spring to early summer."
       }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    imageUrl: "/Western corn rootworm.jpg"
   }
 ];
 
 // Simulated API call that would normally go to a backend
-export const getPestInfo = (imageData: string): Promise<PestInfo> => {
+// Updated to accept pest name and confidence from Flask backend
+export const getPestInfo = (pestNameOrImageData: string, confidenceScore?: number): Promise<PestInfo> => {
   return new Promise((resolve) => {
-    // Simulate API processing time
-    setTimeout(() => {
-      // Generate a simple hash from the image data to ensure consistency
+    // If confidenceScore is provided, we're getting data from backend (Flask)
+    if (confidenceScore !== undefined) {
+      // Try to find matching pest in library by name
+      const matchedPest = pestLibrary.find(pest => 
+        pest.name.toLowerCase().includes(pestNameOrImageData.toLowerCase()) ||
+        pestNameOrImageData.toLowerCase().includes(pest.name.toLowerCase())
+      );
+      
+      if (matchedPest) {
+        // Return matched pest with backend confidence (real prediction data takes priority)
+        resolve({
+          ...matchedPest,
+          confidenceScore: confidenceScore
+        });
+      } else {
+        // If no match found in library, create a new pest info using Flask data
+        // This uses the REAL prediction from Flask/Gemini, not library defaults
+        resolve({
+          id: "predicted-pest",
+          name: pestNameOrImageData,  // Use Flask's prediction
+          scientificName: "To be determined",
+          confidenceScore: confidenceScore,  // Use Flask's confidence
+          severity: confidenceScore > 0.8 ? "high" : confidenceScore > 0.5 ? "medium" : "low",
+          description: `Detected pest: ${pestNameOrImageData} (Confidence: ${(confidenceScore * 100).toFixed(1)}%). This is a real prediction from the AI model. Please consult local agricultural resources for specific information about this pest.`,
+          remedies: [
+            {
+              name: "Consult Local Agricultural Extension",
+              description: "Contact your local agricultural extension office for specific treatment recommendations for this pest type in your region.",
+              effectiveness: "High",
+              application: "Call your county extension office or visit their website for expert advice on treating this pest."
+            },
+            {
+              name: "Document the Pest",
+              description: "Take clear photos and notes about the damage pattern to help experts identify the pest accurately.",
+              effectiveness: "High",
+              application: "Document pest characteristics, damage patterns, and affected plants to share with agricultural experts."
+            }
+          ],
+          imageUrl: "https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        });
+      }
+    } else {
+      // Original behavior: Generate a simple hash from the image data to ensure consistency
       const hashCode = (str: string) => {
         let hash = 0;
         for (let i = 0; i < 100 && i < str.length; i++) {
@@ -537,9 +532,10 @@ export const getPestInfo = (imageData: string): Promise<PestInfo> => {
       };
       
       // Use the hash to consistently pick a pest for the same image
-      const hash = hashCode(imageData);
+      const hash = hashCode(pestNameOrImageData);
       const pestIndex = hash % pestLibrary.length;
       resolve(pestLibrary[pestIndex]);
-    }, 2000); // Simulate a 2 second processing time
+    }
   });
 };
+

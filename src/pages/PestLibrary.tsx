@@ -8,16 +8,23 @@ import { Badge } from "@/components/ui/badge";
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { localizePest } from "@/lib/pestI18n";
 
 const PestLibrary = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState("");
   
-  const filteredPests = pestLibrary.filter((pest) => 
-    pest.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    pest.scientificName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    pest.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const normalizedSearch = searchTerm.trim().toLowerCase();
+
+  const filteredPests = pestLibrary.filter((pest) => {
+    const p = localizePest(pest, language);
+    if (!normalizedSearch) return true;
+    return (
+      p.name.toLowerCase().includes(normalizedSearch) ||
+      p.scientificName.toLowerCase().includes(normalizedSearch) ||
+      p.description.toLowerCase().includes(normalizedSearch)
+    );
+  });
   
   const getSeverityColor = (severity: string) => {
     switch (severity) {
@@ -58,7 +65,9 @@ const PestLibrary = () => {
           
           <div className="grid grid-cols-1 gap-6">
             {filteredPests.length > 0 ? (
-              filteredPests.map((pest) => (
+              filteredPests.map((pestBase) => {
+                const pest = localizePest(pestBase, language);
+                return (
                 <Card key={pest.id} className="overflow-hidden">
                   <div className="flex flex-col md:flex-row">
                     <div className="md:w-1/4">
@@ -77,7 +86,7 @@ const PestLibrary = () => {
                             <CardDescription className="italic">{pest.scientificName}</CardDescription>
                           </div>
                           <Badge className={getSeverityColor(pest.severity)}>
-                            {pest.severity.charAt(0).toUpperCase() + pest.severity.slice(1)} {t('pestLibrary.risk')}
+                            {t(`severity.${pest.severity}`)} {t('pestLibrary.risk')}
                           </Badge>
                         </div>
                       </CardHeader>
@@ -101,7 +110,8 @@ const PestLibrary = () => {
                     </div>
                   </div>
                 </Card>
-              ))
+                );
+              })
             ) : (
               <div className="text-center p-10">
                 <h3 className="text-lg font-medium mb-2">{t('pestLibrary.noResults.title')}</h3>

@@ -59,9 +59,9 @@ const Contact = () => {
             <div className="md:col-span-1">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl">Get In Touch</CardTitle>
+                  <CardTitle className="text-xl">{t('contact.getInTouch.title')}</CardTitle>
                   <CardDescription>
-                    Our team is here to help with any questions or feedback.
+                    {t('contact.getInTouch.subtitle')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -70,10 +70,10 @@ const Contact = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                     <div>
-                      <h3 className="font-medium">Email Us</h3>
+                      <h3 className="font-medium">{t('contact.email')}</h3>
                       <p className="text-sm text-muted-foreground">
                         <a href="mailto:info@cropsentinel.com" className="hover:text-cropGreen">
-                          info@cropsentinel.com
+                          cropsentinel@gmail.com
                         </a>
                       </p>
                     </div>
@@ -84,10 +84,10 @@ const Contact = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                     </svg>
                     <div>
-                      <h3 className="font-medium">Call Us</h3>
+                      <h3 className="font-medium">{t('contact.call')}</h3>
                       <p className="text-sm text-muted-foreground">
-                        <a href="tel:+12345678901" className="hover:text-cropGreen">
-                          +1 (234) 567-8901
+                        <a href="tel:123456789" className="hover:text-cropGreen">
+                          123456789
                         </a>
                       </p>
                     </div>
@@ -99,17 +99,17 @@ const Contact = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     </svg>
                     <div>
-                      <h3 className="font-medium">Visit Us</h3>
+                      <h3 className="font-medium">{t('contact.visit')}</h3>
                       <p className="text-sm text-muted-foreground">
                         123 Agriculture Drive<br />
-                        Farmington, CA 94123<br />
-                        United States
+                        Tamil Nadu<br />
+                        India
                       </p>
                     </div>
                   </div>
                   
                   <div className="pt-4">
-                    <h3 className="font-medium mb-2">Follow Us</h3>
+                    <h3 className="font-medium mb-2">{t('contact.follow')}</h3>
                     <div className="flex space-x-4">
                       <a href="#" className="text-cropGreen hover:text-cropGreen-dark">
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -135,16 +135,16 @@ const Contact = () => {
             <div className="md:col-span-2">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl">Send Us a Message</CardTitle>
+                  <CardTitle className="text-xl">{t('contact.sendMessage.title')}</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as possible.
+                    {t('contact.sendMessage.subtitle')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Your Name</Label>
+                        <Label htmlFor="name">{t('contact.form.name')}</Label>
                         <Input 
                           id="name" 
                           name="name" 
@@ -154,7 +154,7 @@ const Contact = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address</Label>
+                        <Label htmlFor="email">{t('contact.form.email')}</Label>
                         <Input 
                           id="email" 
                           name="email" 
@@ -167,7 +167,7 @@ const Contact = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
+                      <Label htmlFor="subject">{t('contact.form.subject')}</Label>
                       <Input 
                         id="subject" 
                         name="subject" 
@@ -178,7 +178,7 @@ const Contact = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="message">Your Message</Label>
+                      <Label htmlFor="message">{t('contact.form.message')}</Label>
                       <Textarea 
                         id="message" 
                         name="message" 
@@ -194,7 +194,7 @@ const Contact = () => {
                       className="bg-cropGreen hover:bg-cropGreen-dark w-full md:w-auto"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Send Message"}
+                      {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
                     </Button>
                   </form>
                 </CardContent>
@@ -205,38 +205,34 @@ const Contact = () => {
           <div className="mt-12">
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">Frequently Asked Questions</CardTitle>
+                <CardTitle className="text-xl">{t('contact.faq.title')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
-                  <h3 className="font-semibold mb-2">How accurate is the pest detection?</h3>
+                  <h3 className="font-semibold mb-2">{t('contact.faq.accuracy.question')}</h3>
                   <p className="text-muted-foreground text-sm">
-                    Our pest detection model has an average accuracy of 95% for the most common crop pests. 
-                    The accuracy may vary depending on image quality and whether the pest is in our database.
+                    {t('contact.faq.accuracy.answer')}
                   </p>
                 </div>
                 
                 <div>
-                  <h3 className="font-semibold mb-2">Is my data secure when I upload images?</h3>
+                  <h3 className="font-semibold mb-2">{t('contact.faq.security.question')}</h3>
                   <p className="text-muted-foreground text-sm">
-                    Yes, we take data privacy seriously. Your uploaded images are used only for pest detection 
-                    and are processed securely. We do not share your data with third parties without your consent.
+                    {t('contact.faq.security.answer')}
                   </p>
                 </div>
                 
                 <div>
-                  <h3 className="font-semibold mb-2">Do you offer custom solutions for large farms?</h3>
+                  <h3 className="font-semibold mb-2">{t('contact.faq.enterprise.question')}</h3>
                   <p className="text-muted-foreground text-sm">
-                    Yes, we offer enterprise solutions for large-scale agricultural operations. These include 
-                    API access, custom model training, and integration with farm management systems. Contact us for details.
+                    {t('contact.faq.enterprise.answer')}
                   </p>
                 </div>
                 
                 <div>
-                  <h3 className="font-semibold mb-2">How can I contribute to improving the app?</h3>
+                  <h3 className="font-semibold mb-2">{t('contact.faq.contribute.question')}</h3>
                   <p className="text-muted-foreground text-sm">
-                    We welcome contributions! You can help by sharing correctly labeled pest images, providing feedback 
-                    on detection accuracy, and suggesting effective organic remedies from your experience.
+                    {t('contact.faq.contribute.answer')}
                   </p>
                 </div>
               </CardContent>

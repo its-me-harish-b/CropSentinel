@@ -1,8 +1,9 @@
-
+/* --- 1. THESE 3 LINES ARE REQUIRED --- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* --- 2. Theme Variables --- */
 @layer base {
   :root {
     --background: 80 30% 97%;
@@ -85,14 +86,24 @@
   }
 }
 
+/* --- 3. Global Resets (The Fix for White Bars) --- */
 @layer base {
   * {
     @apply border-border;
   }
 
+  /* This fixes the full screen background issue */
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -100,6 +111,7 @@
   }
 }
 
+/* --- 4. Custom Classes --- */
 .upload-dropzone {
   border: 2px dashed hsl(var(--border));
   transition: all 0.3s ease;

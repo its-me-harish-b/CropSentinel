@@ -1,4 +1,3 @@
-
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,23 +9,29 @@ const Index = () => {
   
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative bg-cropGreen-dark text-white">
+      {/* Hero Section - UPDATED for full screen height */}
+      <section className="relative w-full min-h-screen flex items-center bg-cropGreen-dark text-white">
+        
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-cropGreen-dark opacity-80"></div>
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80')] bg-cover bg-center"></div>
+          {/* Dark Overlay - Adjusted opacity for readability */}
+          <div className="absolute inset-0 bg-cropGreen-dark opacity-60 z-10"></div>
+          
+          {/* CORRECTED IMAGE PATH */}
+          {/* 1. Ensure 'img.jpeg' is inside the 'public' folder of your project */}
+          {/* 2. Use '/img.jpeg' to reference it relative to the web root */}
+          <div className="absolute inset-0 bg-[url('/img.jpeg')] bg-cover bg-center bg-no-repeat z-0"></div>
         </div>
         
-        <div className="container mx-auto px-6 py-20 md:py-32 relative z-10">
+        <div className="container mx-auto px-6 py-20 md:py-32 relative z-20">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-md">
               {t('hero.title')}
             </h1>
-            <p className="text-lg md:text-xl mb-8 opacity-90">
+            <p className="text-lg md:text-xl mb-8 opacity-90 drop-shadow-sm">
               {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="bg-white text-cropGreen-dark hover:bg-soil-light">
+              <Button asChild size="lg" className="bg-white text-cropGreen-dark hover:bg-soil-light border-none">
                 <Link to="/detect">{t('hero.detectButton')}</Link>
               </Button>
               <Button asChild variant="secondary" size="lg" className="bg-white/20 backdrop-blur-sm border-white text-white hover:bg-white hover:text-cropGreen-dark">

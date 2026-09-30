@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+  <style>
+    /* Same Error Styles as Login Page */
+    .error-text {
+      background-color: #ffcccc;
+      color: #cc0000;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      text-align: left;
+      display: none; /* Hidden by default */
+      border: 1px solid #ff0000;
+    }
+
+    /* Fix spacing for input-box */
+    .input-box {
+      margin-bottom: 10px;
+    }
+
+    /* Cursor for the lock icon */
+    #togglePassword {
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <form action="" id="registerForm">
+      <h1>Register</h1>
+
+      <div class="input-box">
+        <input type="text" id="username" placeholder="Username" required>
+        <i class='bx bxs-user'></i>
+      </div>
+      <p class="error-text" id="usernameError">Error</p>
+
+      <div class="input-box">
+        <input type="email" id="email" placeholder="Email" required>
+        <i class='bx bxs-envelope'></i>
+      </div>
+      <p class="error-text" id="emailError">Error</p>
+
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" required>
+        <i class='bx bxs-lock-alt' id="togglePassword"></i>
+      </div>
+      <p class="error-text" id="passwordError">Error</p>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox" id="terms" required> I agree to the terms & conditions</label>
+      </div>
+      <p class="error-text" id="termsError">You must agree to the terms.</p>
+
+      <button type="submit" class="btn">Register</button>
+
+      <div class="register-link">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // --- SELECT ELEMENTS ---
+    const form = document.getElementById('registerForm');
+    const usernameInput = document.getElementById('username');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const termsInput = document.getElementById('terms');
+    const toggleIcon = document.getElementById('togglePassword');
+
+    // Error Message Elements
+    const userError = document.getElementById('usernameError');
+    const emailError = document.getElementById('emailError');
+    const passError = document.getElementById('passwordError');
+    const termsError = document.getElementById('termsError');
+
+    // --- TOGGLE PASSWORD VISIBILITY ---
+    toggleIcon.addEventListener('click', function () {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      
+      // Toggle icon class
+      this.classList.toggle('bxs-lock-alt');
+      this.classList.toggle('bxs-lock-open-alt');
+    });
+
+    // --- VALIDATION LOGIC ---
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Stop submission to check rules
+
+      // 1. Reset all errors
+      userError.style.display = "none";
+      emailError.style.display = "none";
+      passError.style.display = "none";
+      termsError.style.display = "none";
+
+      const usernameVal = usernameInput.value.trim();
+      const emailVal = emailInput.value.trim();
+      const passwordVal = passwordInput.value.trim();
+      let isValid = true;
+
+      // 2. Validate Username
+      if (usernameVal.length < 4) {
+        userError.innerText = "Username must be at least 4 characters.";
+        userError.style.display = "block";
+        isValid = false;
+      }
+
+      // 3. Validate Email (Regex Check)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailVal)) {
+        emailError.innerText = "Please enter a valid email address.";
+        emailError.style.display = "block";
+        isValid = false;
+      }
+
+      // 4. Validate Password (Strict Rules)
+      // 8-12 chars, 1 Uppercase, 1 Lowercase, 1 Number, 1 Symbol
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,12}$/;
+      
+      if (!passwordRegex.test(passwordVal)) {
+        passError.innerText = "Password must be 8-12 chars, with 1 uppercase, 1 lowercase, 1 number, and 1 symbol.";
+        passError.style.display = "block";
+        isValid = false;
+      }
+
+      // 5. Validate Terms Checkbox
+      if (!termsInput.checked) {
+        termsError.style.display = "block";
+        isValid = false;
+      }
+
+      // 6. Success
+      if (isValid) {
+        alert("Registration Successful!");
+        // form.submit(); // Uncomment to send data to server
+      }
+    });
+  </script>
+
+</body>
+</html>

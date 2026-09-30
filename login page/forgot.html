@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+  <style>
+    /* Consistent Error Style */
+    .error-text {
+      background-color: #ffcccc;
+      color: #cc0000;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      text-align: left;
+      display: none; /* Hidden by default */
+      border: 1px solid #ff0000;
+    }
+
+    /* Fix spacing for input-box */
+    .input-box {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <form action="/forgot-password" method="POST" id="forgotForm">
+      <h1>Forgot Password</h1>
+      
+      <p class="form-text" style="text-align: center; margin-bottom: 20px; font-size: 14px;">
+        Enter the email address associated with your account and we'll send you a link to reset your password.
+      </p>
+
+      <div class="input-box">
+        <input type="email" id="email" placeholder="Email Address" required aria-label="Email Address">
+        <i class='bx bxs-envelope'></i>
+      </div>
+      <p class="error-text" id="emailError">Error</p>
+
+      <button type="submit" class="btn">Send Reset Link</button>
+      
+      <div class="register-link">
+        <p>Remembered your password? <a href="login.html">Back to Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // --- VARIABLES ---
+    const form = document.getElementById('forgotForm');
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('emailError');
+
+    // --- VALIDATION LOGIC ---
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Stop form from submitting immediately
+
+      // 1. Reset Error
+      emailError.style.display = "none";
+
+      const emailVal = emailInput.value.trim();
+      let isValid = true;
+
+      // 2. Validate Email Format (Regex)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailRegex.test(emailVal)) {
+        emailError.innerText = "Please enter a valid email address.";
+        emailError.style.display = "block";
+        isValid = false;
+      }
+
+      // 3. Success
+      if (isValid) {
+        alert("Reset link sent to your email!");
+        // form.submit(); // Uncomment to actually send data to server
+      }
+    });
+  </script>
+
+</body>
+</html>
